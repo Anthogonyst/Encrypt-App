@@ -1,0 +1,185 @@
+<Window
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:vm="using:TouchWater.ViewModels"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	Width="640"
+	Height="400"
+	x:CompileBindings="True"
+	x:DataType="vm:MainWindowViewModel"
+	x:Class="TouchWater.Views.MainWindow"
+	Icon="/Assets/avalonia-logo.ico"
+	Title="Touch The Water"
+>
+
+	<Design.DataContext>
+		<vm:MainWindowViewModel/>
+	</Design.DataContext>
+
+	<Grid RowDefinitions="Auto, Auto, *, Auto, *" ColumnDefinitions="Auto, *">
+
+		<TextBlock 
+			Grid.Row="0" Grid.Column="0"
+			Text="Interface:"
+			FontWeight="Bold"
+			VerticalAlignment="Center"
+			Margin="5"
+		/>
+
+		<StackPanel
+			Grid.Row="0" Grid.Column="1"
+			Spacing="5"
+			Margin="5"
+		>
+			<StackPanel
+				Orientation="Horizontal"
+				Spacing="5"
+			>
+				<Button
+					Command="{Binding OpenDataFolder}"
+					Content="📂"
+				/>
+				<Button
+					Command="{Binding LoadWebsite}"
+					Content="Load Charset"
+				/>
+				<TextBox
+					Text="{Binding Website}"
+					Watermark="Website Name"
+				/>
+			</StackPanel>
+
+			<StackPanel
+				Orientation="Horizontal"
+				Spacing="5"
+			>
+				<NumericUpDown
+					Value="{Binding NChars}"
+				/>
+				<!-- WIP planned for later, create a dropdown menu for string[]
+				<ComboBox
+					ItemsSource="{Binding AvailableMathOperators}"
+					SelectedItem="{Binding Operator}" />
+				-->
+				<Button
+					Command="{Binding FillEnglishCharset}"
+					Content="Eng"
+				/>
+				<Button
+					Command="{Binding FillMalayalamCharset}"
+					Content="Elf"
+				/>
+				<TextBox
+					Text="{Binding CharacterSet}"
+					Watermark="Output characters"
+				/>
+			</StackPanel>
+
+			<StackPanel
+				Orientation="Horizontal"
+				Spacing="5"
+			>
+				<Button
+					Name="StronglyEncrypt"
+					Command="{Binding StrongEncrypt}"
+					Content="Strong Encrypt"
+				/>
+				<Button
+					Name="WeaklyEncrypt"
+					Command="{Binding WeakEncrypt}"
+					Content="Weak Encrypt"
+				/>
+				<Button
+					Name="DecryptWeakly"
+					Command="{Binding DecryptWeak}"
+					Content="Decrypt Weak"
+				/>
+			</StackPanel>
+
+		</StackPanel>
+
+		<Separator
+			Grid.Row="1" Grid.ColumnSpan="2"
+			HorizontalAlignment="Stretch"
+			Margin="5"
+			Height="2"
+			Background="LightGray"
+		/>
+
+		<TextBlock
+			Grid.Row="2" Grid.Column="0"
+			Text="Input Text:"
+			FontWeight="Bold"
+			Margin="5"
+			VerticalAlignment="Center"
+		/>
+
+		<!-- This is the area where the encryption input is rendered. -->
+		<Border
+			Grid.Row="2" Grid.Column="1"
+			CornerRadius="10"
+			Margin="5"
+			BorderThickness="1"
+			BorderBrush="{DynamicResource SystemAccentColor}"
+		>
+			<Grid RowDefinitions="Auto, Auto, *" ColumnDefinitions="*,Auto">
+				<TextBox
+					Text="{Binding EncryptInput}"
+					Watermark="The password to either encrypt a seed, or to caesar shift."
+				/>
+				<Button
+					Grid.Column="1"
+					VerticalAlignment="Stretch"
+					VerticalContentAlignment="Center"
+					Background="Transparent"
+					Command="{Binding PostEncrypt.Clear}"
+					Content="❌"
+				/>
+			</Grid>
+		</Border>
+
+		<Separator
+			Grid.Row="3" Grid.ColumnSpan="2"
+			HorizontalAlignment="Stretch"
+			Margin="5"
+			Height="2"
+			Background="LightGray"
+		/>
+
+		<TextBlock
+			Grid.Row="4" Grid.Column="0"
+			Text="Secret Output:"
+			FontWeight="Bold"
+			Margin="5"
+			VerticalAlignment="Center"
+		/>
+
+		<!-- This is the area where the encryption output is rendered. -->
+		<Border
+			Grid.Row="4" Grid.Column="1"
+			CornerRadius="10"
+			Margin="5"
+			BorderThickness="1"
+			BorderBrush="{DynamicResource SystemAccentColor}"
+		>
+			<Grid RowDefinitions="Auto" ColumnDefinitions="*,Auto">
+				<ItemsControl
+					Margin="5"
+					ItemsSource="{Binding PostEncrypt}"
+				/>
+
+				<!-- This button will clear the recent conversation log. -->
+				<!-- which is not supported via CompiledBinding. -->
+				<Button Grid.Column="1"
+					VerticalAlignment="Stretch"
+					VerticalContentAlignment="Center"
+					Background="Transparent"
+					Command="{Binding CopyResults}"
+					Content="📋"
+				/>
+			</Grid>
+		</Border>
+	</Grid>
+</Window>
