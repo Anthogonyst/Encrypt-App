@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\EncryptApp.csproj" />
+    <ProjectReference Include="..\src\TouchWater.csproj" />
   </ItemGroup>
 
 </Project>

@@ -30,6 +30,6 @@
 
   <ItemGroup>
     <!-- We need it so tests can use generated controls by name -->
-    <InternalsVisibleTo Include="NUnit" />
+    <InternalsVisibleTo Include="TouchWater.Headless.XUnit" />
   </ItemGroup>
 </Project>

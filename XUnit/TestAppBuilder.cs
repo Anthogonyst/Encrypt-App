@@ -1,6 +1,6 @@
 using Avalonia;
 using Avalonia.Headless;
-using TestableApp;
+using TouchWater;
 
 [assembly: AvaloniaTestApplication(typeof(TestAppBuilder))]
 
