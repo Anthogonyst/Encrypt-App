@@ -40,7 +40,7 @@ namespace TouchWater.ViewModels
 
 		public string? CharacterSet {
 			get => _CharacterSet;
-			set => this.RaiseAndSetIfChanged(ref _CharacterSet, value);
+			set => this.RaiseAndSetIfChanged(ref _CharacterSet, value?.Replace("\r\n", "\n")?.Replace("\n", ""));
 		}
 
 		public string? EncryptInput {
