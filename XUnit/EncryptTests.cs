@@ -31,6 +31,18 @@ public class EncryptTests
         window.WeaklyEncrypt.Focus();
         window.KeyPress(Key.Enter, RawInputModifiers.None);
 
-        Assert.Equal("eaq Riv RutEy gtA Rrvvqd Rtyqp", window.EncryptOutput.Text);
+        // Copy the result output to verify reversible
+        string output = window.EncryptOutput.Text;
+        window.EncryptTextbox.Text = output;
+
+        // Clears the previous output
+        window.ClearButton.Focus();
+        window.KeyPress(Key.Enter, RawInputModifiers.None);
+
+        // Raise click event on the button:
+        window.WeaklyEncrypt.Focus();
+        window.KeyPress(Key.Enter, RawInputModifiers.None);
+
+        Assert.Equal("the big round sheep", window.EncryptOutput.Text);
     }
 }

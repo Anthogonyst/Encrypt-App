@@ -143,6 +143,7 @@
 					VerticalAlignment="Stretch"
 					VerticalContentAlignment="Center"
 					Background="Transparent"
+					Name="ClearButton"
 					Command="{Binding PostEncrypt.Clear}"
 					Content="❌"
 				/>
@@ -186,6 +187,7 @@
 					VerticalAlignment="Stretch"
 					VerticalContentAlignment="Center"
 					Background="Transparent"
+					Name="CopyButton"
 					Command="{Binding CopyResults}"
 					Content="📋"
 				/>
