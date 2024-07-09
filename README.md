@@ -9,6 +9,10 @@ This app is intended as a password manager and caesar cipher for quickly generat
 
 The app is designed to minimize the work of keeping different passwords per website while keeping each website reasonably unique and able to comply with different character sets in a fast manner, without keeping the exact password in plaintext. A hypothetical breach would entail someone downloading all of your files and searching for this program's data specifically, raising the effort required for a high value target. Otherwise, most laymen can enjoy a simplified password manager with no DRM, or network activity required.
 
+Currently, there are only builds for Windows and assumes that it has a standard filesystem.
+
+<img align="center" src="docs/preview.png">
+
 Below, there are 3 options provided, where you can create a irreversible and strongly encrypted password. Alternatively, you can use the caesar shift which is weak and easy to convert back to the source input, but may be more flexible to the user's needs.
 It is recommended to use the Strong Encrypt on any external and internal resource, whereas the Weak Encrypt may be more appealing for recreational activities and sport.
 
@@ -40,6 +44,15 @@ Note, the app only ensures that your password length and character set are the s
 # Contributions
 
 Pull requests are welcome.
+
+
+# Changelog
+
+2.0
+
+- Add dark theme
+- Going from version 1 to version 2 will break character set loading because the read order was swapped. This addressed an issue regarding line breaks. The download link to version 1 will be removed but updating will require manually editing your saved keys.
+- Remove newline in website and charset
 
 
 # Warranty and Liability

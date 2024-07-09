@@ -37,11 +37,27 @@
 				Orientation="Horizontal"
 				Spacing="5"
 			>
+				<!-- WIP planned for later, change the app theme
+				<Button
+					Name="ThemeButton"
+					Content="☀️/🌙"
+				/>
+				-->
 				<Button
 					Name="FolderButton"
 					Command="{Binding OpenDataFolder}"
 					Content="📂"
 				/>
+				<!-- WIP planned for later, open file explorer or web browser
+				<Button
+					Name="AboutButton"
+					Content="🌎 About"
+				/>
+				<Button
+					Name="HelpButton"
+					Content="📕 Help"
+				/>
+				-->
 				<Button
 					Name="WebsiteButton"
 					Command="{Binding LoadWebsite}"
