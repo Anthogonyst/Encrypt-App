@@ -30,7 +30,7 @@ namespace TouchWater.ViewModels
 
 		public string? Website {
 			get => _Website;
-			set => this.RaiseAndSetIfChanged(ref _Website, value);
+			set => this.RaiseAndSetIfChanged(ref _Website, value?.Replace("\r\n", "\n")?.Replace("\n", ""));
 		}
 
 		public int NChars {

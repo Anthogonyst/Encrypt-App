@@ -16,8 +16,8 @@ namespace TouchWater
 
 			if (File.Exists(file)) {
 				using (StreamReader sr = new StreamReader(file)) {
-					string? _keyProbably = sr.ReadLine();
 					string? _numProbably = sr.ReadLine();
+					string? _keyProbably = sr.ReadLine();
 					StringBuilder _key = new StringBuilder(_keyProbably);
 					int _num;
 					bool success = int.TryParse(_numProbably, out _num);
@@ -51,7 +51,7 @@ namespace TouchWater
 		}
 
 		private static bool WriteCharset(string website, string charset, int n) {
-			return Write(GetFile(WebsiteToHash(website)), charset, n.ToString());
+			return Write(GetFile(WebsiteToHash(website)), n.ToString(), charset);
 		}
 
 		private static bool WriteHashToWebsite(string website) {
